@@ -1,0 +1,158 @@
+<core:FragmentDefinition controllerName="amer.zmm.zvendorpoconf.ext.controller.ListReportExt"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:u="sap.ui.unified"
+	xmlns:core="sap.ui.core"
+	xmlns:table="sap.ui.table"
+	xmlns:f="sap.ui.layout.form">
+	<Dialog id="idVendorConfirmationDialog2" title="Vendor Mass Confirmation Dialog" contentHeight="400px" contentWidth="900px">
+		<content>
+			<VBox >
+				<HBox class="sapUiSmallMargin">
+					<u:FileUploader change="changeFileUploader" id="fileUploader" name="myFileUpload" uploadUrl="upload/" uploadComplete="handleUploadComplete" placeholder="{i18n>placeholder}" class="sapUiSmallMarginRight"/>
+					<Button id="idUpload" text="{i18n>uploadfile}" press="onPress" class="sapUiSmallMarginLeft"/>
+				</HBox>
+				<table:Table id="idFileData" visibleRowCount="5" selectionMode="None">
+					<table:rowSettingsTemplate>
+						<table:RowSettings highlight="{= ${Message} !== '' ? 'Error' : 'Success'}" />
+					</table:rowSettingsTemplate>
+					<table:columns>
+						<table:Column hAlign="Left" width="12rem">
+							<Text text="{i18n>PurchasingDocument}"/>
+							<table:template>
+								<Text text="{PurchaseOrder}" textAlign="Left"></Text>
+							</table:template>
+						</table:Column>
+						<table:Column hAlign="Left" width="5rem">
+							<Text text="{i18n>Item}"/>
+							<table:template>
+								<Text text="{PurchaseOrderItem}" textAlign="Left"></Text>
+							</table:template>
+						</table:Column>
+						<table:Column hAlign="Left" width="12rem">
+							<Text text="{i18n>ConfirmationDate1}"/>
+							<table:template>
+								<!-- <Text text="{ path: 'ConfirmationDate1', type: 'sap.ui.model.type.Date', formatOptions:{ style: 'short' }, formatter: 'handleDate'}" /> -->
+								<Text text="{ path: 'SupplierCnfDate1', formatter: '.handleDate'}" />
+							</table:template>
+						</table:Column>
+						<table:Column hAlign="Left" width="12rem">
+							<Text text="{i18n>ConfirmationQty1}"/>
+							<table:template>
+								<Text text="{SupplierCnfQty1}" textAlign="Left"></Text>
+							</table:template>
+						</table:Column>
+				<table:Column width="14rem">
+						<Label text="Supplier Confirmation Reference 1" />
+						<table:template>
+							<Text text="{SupplierCnfRef1}" />
+						</table:template>
+					</table:Column>
+					<table:Column width="10rem">
+						<Label text="Delay Reason 1" />
+						<table:template>
+							<Text text="{SupplierDelayReason1}" />
+						</table:template>
+					</table:Column>				
+						<table:Column hAlign="Left" width="12rem">
+							<Text text="{i18n>ConfirmationDate2}"/>
+							<table:template>
+								<!-- <Text text="{ path: 'ConfirmationDate2', type: 'sap.ui.model.type.Date', formatOptions:{ style: 'short' }, formatter: '.handleDate'}" /> -->
+								<Text text="{ path: 'SupplierCnfDate2', formatter: '.handleDate'}" />
+							</table:template>
+						</table:Column>
+									<table:Column hAlign="Left" width="12rem">
+							<Text text="{i18n>ConfirmationQty2}"/>
+							<table:template>
+								<Text text="{SupplierCnfQty2}" textAlign="Left"></Text>
+							</table:template>
+						</table:Column>			
+			<table:Column width="14rem">
+						<Label text="Supplier Confirmation Reference 2" />
+						<table:template>
+							<Text text="{SupplierCnfRef2}" />
+						</table:template>
+					</table:Column>
+					<table:Column width="10rem">
+						<Label text="Delay Reason 2" />
+						<table:template>
+							<Text text="{SupplierDelayReason2}" />
+						</table:template>
+					</table:Column>					
+
+						<table:Column hAlign="Left" width="12rem">
+							<Text text="{i18n>ConfirmationDate3}"/>
+							<table:template>
+								<!-- <Text text="{ path: 'ConfirmationDate3', type: 'sap.ui.model.type.Date', formatOptions:{ style: 'short' }, formatter: '.handleDate'}" /> -->
+								<Text text="{ path: 'SupplierCnfDate3', formatter: '.handleDate'}" />
+							</table:template>
+						</table:Column>
+						
+						<table:Column hAlign="Left" width="12rem">
+							<Text text="{i18n>ConfirmationQty3}"/>
+							<table:template>
+								<Text text="{SupplierCnfQty3}" textAlign="Left"></Text>
+							</table:template>
+						</table:Column>
+									<table:Column width="14rem">
+						<Label text="Supplier Confirmation Reference 3" />
+						<table:template>
+							<Text text="{SupplierCnfRef3}" />
+						</table:template>
+					</table:Column>
+					<table:Column width="10rem">
+						<Label text="Delay Reason 3" />
+						<table:template>
+							<Text text="{SupplierDelayReason3}" />
+						</table:template>
+					</table:Column>
+						<table:Column hAlign="Left" width="12rem">
+							<Text text="{i18n>SupplierCnfDate4}"/>
+							<table:template>
+								<!-- <Text text="{ path: 'ConfirmationDate4', type: 'sap.ui.model.type.Date', formatOptions:{ style: 'short' }, formatter: '.handleDate'}" /> -->
+								<Text text="{ path: 'SupplierCnfDate4', formatter: '.handleDate'}" />
+							</table:template>
+						</table:Column>
+						<table:Column hAlign="Left" width="12rem">
+							<Text text="{i18n>ConfirmationQty4}"/>
+							<table:template>
+								<Text text="{SupplierCnfQty4}" textAlign="Left"></Text>
+							</table:template>
+						</table:Column>
+									<table:Column width="14rem">
+						<Label text="Supplier Confirmation Reference 4" />
+						<table:template>
+							<Text text="{SupplierCnfRef4}" />
+						</table:template>
+					</table:Column>
+					<table:Column width="10rem">
+						<Label text="Delay Reason 4" />
+						<table:template>
+							<Text text="{SupplierDelayReason4}" />
+						</table:template>
+					</table:Column>
+						<table:Column hAlign="Left" width="12rem">
+							<Text text="{i18n>Message}"/>
+							<table:template>
+								<Text text="{Message}" textAlign="Left"></Text>
+							</table:template>
+						</table:Column>
+					</table:columns>
+				</table:Table>
+			</VBox>
+		</content>
+		<buttons>
+			<Button id="idPostVCLns" text="{i18n>Post}" visible="true" press="OnPostVCL" type="Emphasized"/>
+			<Button id="idPostClose" text="{i18n>Close}" visible="true" press="OnPostVCClose" type="Emphasized"/>
+		</buttons>
+		<!-- <footer> -->
+			<!-- <OverflowToolbar> -->
+				<!-- <ToolbarSpacer/> -->
+				<!-- <Button id="idValidateMJELns" text="{i18n>Validate}" visible="false" press="OnPostVCL" type="Emphasized"/> -->
+				<!-- <Button id="idPostVCLns" text="{i18n>Post}" visible="true" press="OnPostVCL" type="Emphasized"/> -->
+				<!-- <Button id="idPostClose" text="{i18n>Close}" visible="true" press="OnPostVCClose" type="Emphasized"/> -->
+			<!-- </OverflowToolbar> -->
+		<!-- </footer> -->
+	</Dialog>
+</core:FragmentDefinition>

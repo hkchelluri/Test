@@ -1,0 +1,177 @@
+<core:FragmentDefinition
+   xmlns="sap.m" xmlns:table="sap.ui.table"
+   xmlns:core="sap.ui.core" >
+   <Dialog
+      id="idQuickConfirmationDialog"
+      title="Quick Confirmation Dialog" contentHeight="1000px" contentWidth="1200px">
+      <content>
+            <table:Table id="idQuickConfirmationTable" selectionMode="MultiToggle"
+				visibleRowCount="10" ariaLabelledBy="title" paste="onPaste" rows="{ path: '/quickVendorData'}">
+				<table:extension>
+					<OverflowToolbar id="otbSubheader" style="Clear">
+						<Title text="PO Lines For Quick Confirmation" level="H2" />
+						<ToolbarSpacer />
+					</OverflowToolbar>
+				</table:extension>
+				<table:rowSettingsTemplate>
+					<table:RowSettings highlight="{= ${MsgTyp} === 'E' ? 'Error' : null}" />
+				</table:rowSettingsTemplate>
+				<table:columns>
+					<table:Column width="12rem">
+						<Label text="Purchasing Document" />
+						<table:template>
+							<Text text="{PurchaseOrder}" wrapping="false" />
+						</table:template>
+					</table:Column>
+					<table:Column width="12rem">
+						<Label text="Purchasing Item" />
+						<table:template>
+							<Text text="{PurchaseOrderItem}" wrapping="false" />
+						</table:template>
+					</table:Column>
+					<table:Column width="12rem">
+						<Label text="Purchasing Group" />
+						<table:template>
+							<Text text="{PurchasingGroup}" wrapping="false" />
+						</table:template>
+					</table:Column>
+					<table:Column width="12rem">
+						<Label text="Purchasing Org" />
+						<table:template>
+							<Text text="{PurchasingOrganization}" wrapping="false" />
+						</table:template>
+					</table:Column>
+					<table:Column width="8rem">
+						<Label text="Supplier" />
+						<table:template>
+							<Text text="{Supplier}" wrapping="false" />
+						</table:template>
+					</table:Column>
+					<table:Column width="14rem">
+						<Label text="Order Quantity" />
+						<table:template>
+							<Text text="{OrderQuantity}" />
+						</table:template>
+					</table:Column>
+					<table:Column width="8rem">
+						<Label text="UOM" />
+						<table:template>
+							<Text text="{PurchaseOrderQuantityUnit}" />
+						</table:template>
+					</table:Column>
+						<table:Column width="10rem">
+						<Label text="Pickup Date " />
+						<table:template>
+							<DatePicker enabled="false"   value="{path: 'PickUpDate', type: 'sap.ui.model.type.Date', formatOptions: {UTC : true}}"/>
+						</table:template>
+					</table:Column>
+									<table:Column width="10rem">
+						<Label text="Supplier Confirmation Date 1" />
+						<table:template>
+							<DatePicker  enabled="false"  value="{path: 'SupplierCnfDate1', type: 'sap.ui.model.type.Date', formatOptions: {UTC : true}}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="14rem">
+						<Label text="Supplier Confirmation Qty 1" />
+						<table:template>
+							<Text text="{SupplierCnfQty1}" />
+						</table:template>
+					</table:Column>
+					<table:Column width="14rem">
+						<Label text="Supplier Confirmation Reference 1" />
+						<table:template>
+							<Text text="{SupplierCnfRef1}" />
+						</table:template>
+					</table:Column>
+					<table:Column width="10rem">
+						<Label text="Delay Reason 1" />
+						<table:template>
+							<Text text="{SupplierDelayReason1}" />
+						</table:template>
+					</table:Column>	
+				<!-- <table:Column width="10rem">
+						<Label text="Supplier Confirmation Date 2" />
+						<table:template>
+						<DatePicker value="{path: 'SupplierCnfDate2', type: 'sap.ui.model.type.Date', formatOptions: {UTC : true}}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="14rem">
+						<Label text="Supplier Confirmation Qty 2" />
+						<table:template>
+							<Text text="{SupplierCnfQty2}" />
+						</table:template>
+					</table:Column>
+										<table:Column width="14rem">
+						<Label text="Supplier Confirmation Reference 2" />
+						<table:template>
+							<Text text="{SupplierCnfRef2}" />
+						</table:template>
+					</table:Column>
+					<table:Column width="10rem">
+						<Label text="Delay Reason 2" />
+						<table:template>
+							<Text text="{SupplierDelayReason2}" />
+						</table:template>
+					</table:Column>	
+				<table:Column width="10rem">
+						<Label text="Supplier Confirmation Date 3" />
+						<table:template>
+						<DatePicker value="{path: 'SupplierCnfDate3', type: 'sap.ui.model.type.Date', formatOptions: {UTC : true}}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="14rem">
+						<Label text="Supplier Confirmation Qty 3" />
+						<table:template>
+							<Text text="{SupplierCnfQty3}" />
+						</table:template>
+					</table:Column>
+										<table:Column width="14rem">
+						<Label text="Supplier Confirmation Reference 3" />
+						<table:template>
+							<Text text="{SupplierCnfRef3}" />
+						</table:template>
+					</table:Column>
+					<table:Column width="10rem">
+						<Label text="Delay Reason 3" />
+						<table:template>
+							<Text text="{SupplierDelayReason3}" />
+						</table:template>
+					</table:Column>	
+				<table:Column width="10rem">
+						<Label text="Supplier Confirmation Date 4" />
+						<table:template>
+						<DatePicker value="{path: 'SupplierCnfDate4', type: 'sap.ui.model.type.Date', formatOptions: {UTC : true}}"/>
+						</table:template>
+					</table:Column>
+					<table:Column width="14rem">
+						<Label text="Supplier Confirmation Qty 4" />
+						<table:template>
+							<Text text="{SupplierCnfQty4}" />
+						</table:template>
+					</table:Column>
+										<table:Column width="14rem">
+						<Label text="Supplier Confirmation Reference 4" />
+						<table:template>
+							<Text text="{SupplierCnfRef4}" />
+						</table:template>
+					</table:Column>
+					<table:Column width="10rem">
+						<Label text="Delay Reason 4" />
+						<table:template>
+							<Text text="{SupplierDelayReason4}" />
+						</table:template>
+					</table:Column>	 -->
+					<table:Column width="30rem">
+						<Label text="Message" />
+						<table:template>
+							<Text text="{Message}" />
+						</table:template>
+					</table:Column>																	
+				</table:columns>
+			</table:Table>
+      </content>
+      <buttons>
+        <Button id="idClose" text="Close" press="quickConfirmationDialogClose"></Button>
+      </buttons>
+   </Dialog>
+</core:FragmentDefinition>
